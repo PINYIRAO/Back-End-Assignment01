@@ -1,3 +1,10 @@
+export interface Asset {
+  name: string;
+  value: number;
+  // percantage is an optional attribute
+  percentage?: number;
+}
+
 interface PortfolioPerformance {
   initialInvestment: number;
   currentValue: number;
@@ -48,3 +55,52 @@ export function calculatePortfolioPerformance(
     performanceSummary,
   };
 }
+
+export function findLargestHolding(arr: Asset[]): Asset[] {
+  const largestHoldings: Asset[] = [];
+  if (arr.length === 0) {
+    throw new Error("There is empty portfolio input.");
+  }
+
+  let currentMaxValue = 0;
+  arr.forEach((asset) => {
+    if (asset.value > currentMaxValue) {
+      currentMaxValue = asset.value;
+      // clear the largestHoldings
+      largestHoldings.length = 0;
+      // reset the largestHoldings
+      largestHoldings.push(asset);
+    } else if (asset.value == currentMaxValue) {
+      // add another the largestHoldings
+      largestHoldings.push(asset);
+    }
+  });
+
+  // return the largest holdings
+  return largestHoldings;
+}
+
+export function assetAllocationPercentage(arr: Asset[]): void {
+  if (arr.length === 0) {
+    throw new Error("There is empty portfolio input.");
+  }
+
+  // get the total value of the portfolio
+  const totalValue: number = arr.reduce((acc, asset) => acc + asset.value, 0);
+
+  arr.forEach((asset) => {
+    asset.percentage = parseFloat(
+      ((asset.value / totalValue) * 100).toFixed(2)
+    );
+  });
+}
+
+// const arr = [
+//   { name: "real estate", value: 100 },
+//   { name: "bonds", value: 1200 },
+//   { name: "stocks", value: 1200 },
+// ];
+// assetAllocationPercentage(arr);
+// console.log(findLargestHolding(arr));
+
+// console.log(arr);
