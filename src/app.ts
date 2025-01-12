@@ -22,7 +22,7 @@ setupSwagger(app);
  *         description: a greet message from application
  */
 app.get("/", (req, res) => {
-  res.send("Hello, welcome to Back-End world!");
+  res.send("Hello, welcome to Back-End world! Enjoy it!");
 });
 
 // define a GET route for health check

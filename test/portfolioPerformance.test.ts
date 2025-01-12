@@ -8,7 +8,7 @@ import {
 describe("calculatePortfolioPerformance", () => {
   it("should return gained slightly performance", () => {
     const initialInvestment = 100;
-    const currentValue = 105;
+    const currentValue = 106;
     const performanceLevel = "gained slightly";
     const performanceSummary = calculatePortfolioPerformance(
       initialInvestment,
