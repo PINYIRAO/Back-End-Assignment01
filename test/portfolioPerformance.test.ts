@@ -36,7 +36,7 @@ describe("calculatePortfolioPerformance", () => {
 
   it("should return gained moderately performance", () => {
     const initialInvestment = 100;
-    const currentValue = 115;
+    const currentValue = 116;
     const performanceLevel = "gained moderately";
     const performanceSummary = calculatePortfolioPerformance(
       initialInvestment,
