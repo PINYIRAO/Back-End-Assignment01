@@ -13,6 +13,7 @@ interface PortfolioPerformance {
   performanceSummary: string;
 }
 
+// calculate the portfolio performance
 export function calculatePortfolioPerformance(
   initialInvestment: number,
   currentValue: number
@@ -56,12 +57,14 @@ export function calculatePortfolioPerformance(
   };
 }
 
+// find the max valued asset in a portfolio
 export function findLargestHolding(arr: Asset[]): Asset[] {
   const largestHoldings: Asset[] = [];
   if (arr.length === 0) {
     throw new Error("There is empty portfolio input.");
   }
 
+  // find the max valued asset/assets
   let currentMaxValue = 0;
   arr.forEach((asset) => {
     if (asset.value > currentMaxValue) {
@@ -80,6 +83,7 @@ export function findLargestHolding(arr: Asset[]): Asset[] {
   return largestHoldings;
 }
 
+// calculate the percentage of the portfolio for each asset represents
 export function assetAllocationPercentage(arr: Asset[]): void {
   if (arr.length === 0) {
     throw new Error("There is empty portfolio input.");
@@ -88,6 +92,7 @@ export function assetAllocationPercentage(arr: Asset[]): void {
   // get the total value of the portfolio
   const totalValue: number = arr.reduce((acc, asset) => acc + asset.value, 0);
 
+  // cal the percentage
   arr.forEach((asset) => {
     asset.percentage = parseFloat(
       ((asset.value / totalValue) * 100).toFixed(2)
