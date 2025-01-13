@@ -5,7 +5,7 @@ export interface Asset {
   percentage?: number;
 }
 
-interface PortfolioPerformance {
+export interface PortfolioPerformance {
   initialInvestment: number;
   currentValue: number;
   profitOrLoss: number;
@@ -18,11 +18,11 @@ export function calculatePortfolioPerformance(
   initialInvestment: number,
   currentValue: number
 ): PortfolioPerformance {
-  const profitOrLoss = currentValue - initialInvestment;
+  const profitOrLoss: number = currentValue - initialInvestment;
 
-  const percentageChange = (profitOrLoss / initialInvestment) * 100;
+  const percentageChange: number = (profitOrLoss / initialInvestment) * 100;
 
-  let performanceLevel;
+  let performanceLevel: string;
   switch (true) {
     case percentageChange > 20:
       performanceLevel = "gained significantly";
@@ -46,7 +46,7 @@ export function calculatePortfolioPerformance(
       performanceLevel = "lost significantly";
   }
 
-  let performanceSummary = `The portfolio has ${performanceLevel} with a profit of $${profitOrLoss}.`;
+  const performanceSummary: string = `The portfolio has ${performanceLevel} with a profit of $${profitOrLoss}.`;
 
   return {
     initialInvestment,
@@ -65,7 +65,7 @@ export function findLargestHolding(arr: Asset[]): Asset[] {
   }
 
   // find the max valued asset/assets
-  let currentMaxValue = 0;
+  let currentMaxValue: number = 0;
   arr.forEach((asset) => {
     if (asset.value > currentMaxValue) {
       currentMaxValue = asset.value;

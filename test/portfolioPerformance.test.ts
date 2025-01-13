@@ -1,5 +1,6 @@
 import {
   Asset,
+  PortfolioPerformance,
   findLargestHolding,
   assetAllocationPercentage,
   calculatePortfolioPerformance,
@@ -7,14 +8,12 @@ import {
 
 describe("calculatePortfolioPerformance", () => {
   it("should return gained slightly performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 106;
-    const performanceLevel = "gained slightly";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 106;
+    const performanceLevel: string = "gained slightly";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -35,14 +34,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return gained moderately performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 116;
-    const performanceLevel = "gained moderately";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 116;
+    const performanceLevel: string = "gained moderately";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -63,14 +60,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return gained significantly performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 130;
-    const performanceLevel = "gained significantly";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 130;
+    const performanceLevel: string = "gained significantly";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -91,14 +86,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return no change performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 100;
-    const performanceLevel = "no change";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 100;
+    const performanceLevel: string = "no change";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -119,14 +112,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return lost slightly performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 99;
-    const performanceLevel = "lost slightly";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 99;
+    const performanceLevel: string = "lost slightly";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -147,14 +138,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return lost moderately performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 80;
-    const performanceLevel = "lost moderately";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 80;
+    const performanceLevel: string = "lost moderately";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
@@ -175,14 +164,12 @@ describe("calculatePortfolioPerformance", () => {
   });
 
   it("should return lost significantly performance", () => {
-    const initialInvestment = 100;
-    const currentValue = 70;
-    const performanceLevel = "lost significantly";
-    const performanceSummary = calculatePortfolioPerformance(
-      initialInvestment,
-      currentValue
-    );
-    const regMatch = new RegExp(
+    const initialInvestment: number = 100;
+    const currentValue: number = 70;
+    const performanceLevel: string = "lost significantly";
+    const performanceSummary: PortfolioPerformance =
+      calculatePortfolioPerformance(initialInvestment, currentValue);
+    const regMatch: RegExp = new RegExp(
       `${performanceLevel} with a profit of \\$${
         currentValue - initialInvestment
       }`,
