@@ -45,5 +45,33 @@ app.get("/api/v1/health", (req, res) => {
   });
 });
 
+// define a route for greeting with a quote
+/**
+ * @openapi
+ * /greeting:
+ *  get:
+ *   summary: Get a greeting with a quote
+ *   tags: [greeting]
+ *   responses:
+ *    200:
+ *     description: a quote from
+ */
+interface Quote {
+  _id: string;
+  author: string;
+  content: string;
+  tags: string[];
+  authorSlug: string;
+  length: number;
+  dateAdded: string;
+  dateModified: string;
+}
+app.get("/greeting", async (req, res) => {
+  const url: string = "http://api.quotable.io/quotes/random";
+  const response: Response = await fetch(url);
+  const data: Quote[] = await response.json();
+  res.json(data[0].content);
+});
+
 // export app and server for testing
 export default app;
